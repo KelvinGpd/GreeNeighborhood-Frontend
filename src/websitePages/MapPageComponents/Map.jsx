@@ -16,7 +16,7 @@ function getData(setApiData) {
 
 
 
-const Map = () => {
+const Map = (props) => {
     const [apiData, setApiData] = useState()
 
     useEffect(() => {
@@ -28,8 +28,16 @@ const Map = () => {
 
         if(division["properties"]["NOM"] in apiData){
             if ("population" in apiData[division["properties"]["NOM"]]){
-                var val = 255 * Number(apiData[division.properties["NOM"]]['population'])/100000
-                return `rgb(${255-val}, ${255}, ${128})`
+                var val = 255 * Number(apiData[division.properties["NOM"]]['population'])
+                if(type == "population"){
+                    return (`rgb(${255}, ${255}, ${val})`)
+                }
+                else if(type == "cars"){
+                    return (`rgb(${val}, ${255-val}, ${128})`)
+                }
+                else{
+                    return (`rgb(${255-val}, ${val}, ${128})`)
+                }
             }
             else {
                 return "#000"
@@ -38,11 +46,6 @@ const Map = () => {
         else{
             return "#000"
         }
-
-        
-        
-        var red = 255 * (val/100000)
-        return `rgb(${red}, ${0}, ${0})`
     }
 
     return (
@@ -56,7 +59,7 @@ const Map = () => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
                 var color = "#fff"
                 if(apiData != undefined){
-                    color = getColor("population", division)
+                    color = getColor(props.toggle, division)
                     console.log(apiData)
                 }
                 return (<Polygon
