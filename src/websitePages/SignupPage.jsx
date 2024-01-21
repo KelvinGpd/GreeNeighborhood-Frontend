@@ -2,22 +2,80 @@ import React, { useEffect, useState } from 'react'
 import LoginPage from './LoginPage'
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {set, ref, getDatabase, get, child} from "firebase/database"
+
 import { Autocomplete, InputLabel } from "@mui/material";
 import { TextField } from "@mui/material";
-import axios from 'axios';
 
-function createUser(email, password, arrondissement, age, ourApp, setErrorMessage){
+
+import axios from 'axios';
+import { point } from 'leaflet';
+
+
+
+// RETURN LOBJECT
+function getUserData(userId){
+
+  const db = ref(getDatabase());
+      get(child(db, `users/${userId}`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            console.log("oh");
+            var bestObj = snapshot.val();
+            return bestObj
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+}
+
+function assignPoints(neighborhood, points){
+  //Post request vers mon backend
+  // nb points, npm du quartier
+
+  axios.post("http://127.0.0.1:5000/post_points",
+    {
+      "neighborhood": neighborhood,
+      "points": points
+    }
+  )
+
+}
+
+
+function writeUserData(userId, name, email, neighborhood) {
+  const db = getDatabase();
+  console.log(neighborhood)
+  set(ref(db, "users/" + userId), {
+    username: name,
+    email: email,
+    neighborhood: neighborhood['label'],
+  });
+
+
+
+}
+
+function createUser(email, password, arrondissement, age, ourApp, setErrorMessage, neighborhood){
 
     const auth = getAuth(ourApp);
+
+
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         console.log("User created !")
 
         //TODO, GIVE POINT TO ARRONDISSEMENT
+        assignPoints(neighborhood, 1)
 
     // Signed up 
     const user = userCredential.user;
+    writeUserData(user.uid, document.getElementById('signup_username'), email, neighborhood)
+    return user.uid
     // ...
     })
     .catch((error) => {
@@ -122,7 +180,7 @@ export default function SignupPage(props) {
 
        <input type='submit' placeholder='sign-up' onClick={() => {
 
-        var inputField = document.getElementById('signup_username');
+        var inputField = document.getElementById('signup_email');
         var inputValue = inputField.value;
         var email = inputValue
 
@@ -130,7 +188,7 @@ export default function SignupPage(props) {
         var inputValue2 = inputField2.value;
         console.log("Hello")
 
-        createUser(email, inputValue2, "Verdun", 10, props.app, setErrorMessage)
+        var uid = createUser(email, inputValue2, "Verdun", 10, props.app, setErrorMessage, neighborhood)
 
        }} />
 
