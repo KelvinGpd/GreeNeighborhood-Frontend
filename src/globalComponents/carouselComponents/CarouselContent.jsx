@@ -7,7 +7,7 @@ const CarouselContent = ({selectedMedia, shiftCarousel}) => {
                 className = "carousel-slider"
                 src = {carouselSlider} 
                 style = {{transform: "scaleX(-1)"}}
-                onClick = {() => shiftCarousel(1)}
+                onClick = {() => shiftCarousel(-1)}
             />
             <div className="carousel-media-display">
                 <div>
@@ -20,7 +20,7 @@ const CarouselContent = ({selectedMedia, shiftCarousel}) => {
             <img 
                 className = "carousel-slider"
                 src = {carouselSlider} 
-                onClick = {() => shiftCarousel(-1)}
+                onClick = {() => shiftCarousel(1)}
             />
         </div>
 
