@@ -55,7 +55,7 @@ function getData(setApiData) {
         console.log(addingLol)
         val = 255.0*(addingLol / addingMax)
         console.log(val)
-        return (`rgb(${val}, ${255 - val}, 128)`)
+        return (`rgb(${val}, ${255 - val}, ${128})`)
     }
         else{
             return "#000"
@@ -65,7 +65,6 @@ function getData(setApiData) {
 
     if(division["properties"]["NOM"] in apiData){
         if (type in apiData[division["properties"]["NOM"]]){
-            console.log()
             var thisVal = parseFloat(apiData[division.properties["NOM"]][type]);
             var thisMaxVal = maxVal[type];
             var val = 255*(thisVal/ thisMaxVal)
