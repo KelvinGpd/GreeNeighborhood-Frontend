@@ -1,11 +1,14 @@
-const FactContainer = ({fact}) => {
+const InfoCard = ({fact}) => {
     return (
-        <div className = "fact-container">
-            <div className = "fact-container-header">{fact.header}</div>
-            <div className = "fact-container-description">{fact.description}</div>
+        <div className = "infocard-container">
+            <div className = "infocard">
+                <div className = "infocard-header">{fact.header}</div>
+                <div className = "infocard-description">{fact.description}</div>
+            </div>
+            <div className = "box-shadow" style = {{background : "#8F435A"}}></div>
         </div>
     )
 
 
 }
-export default FactContainer;
+export default InfoCard;

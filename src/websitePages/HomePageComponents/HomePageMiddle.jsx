@@ -1,6 +1,6 @@
 import Constants from "../../data/constants";
 import facts from "../../data/facts.json"
-import FactContainer from "../../globalComponents/FactContainer";
+import InfoCard from "../../globalComponents/FactContainer";
 
 const HomePageMiddle = ({}) => {
     return (
@@ -9,16 +9,12 @@ const HomePageMiddle = ({}) => {
             <div className = "home-page-middle-cards-container">
                 {facts.map((fact) => {
                     return (
-                        <FactContainer
+                        <InfoCard
                             fact = {fact}
                         />
                     )
                 })}
             </div>
-            <div>
-                <img src="../../assets/car.svg"/>
-            </div>
-
         </div>
     )
 
