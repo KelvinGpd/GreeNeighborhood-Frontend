@@ -1,15 +1,29 @@
+import { useEffect } from "react";
 import Constants from "../../data/constants";
-import UserCircle from "./UserCircle";
+import { getAuth } from "firebase/auth";
 
-const HeaderRight = ({user, logout}) => {
+const HeaderRight = ({user}) => {
+    
+    let username = user ? user.email : ""
+    useEffect(() => {
+        username = user ? user.email : ""
+    },[user])
+
+    const logout = () => {
+        let auth = getAuth()
+        auth.signOut();
+        window.location.reload();
+    }
 
     return (
-        <div className = "HeaderRight">
-            {Constants.WELCOME}
-            <UserCircle
-                user = {user}
-                logout = {logout}
-            />
+        <div className = "header-right">
+            {Constants.WELCOME + username}
+            <div 
+                className = "header-logout"
+                onClick = {logout}
+            >
+                {Constants.LOGOUT}
+            </div>
         </div>
     )
 

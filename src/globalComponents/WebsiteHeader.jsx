@@ -1,7 +1,7 @@
 import HeaderButton from "./wesbiteHeaderComponents/HeaderButton";
 import HeaderRight from "./wesbiteHeaderComponents/HeaderRight";
 
-const WebsiteHeader = ({currentActivePage, setCurrentActivePage, user, logout}) => {
+const WebsiteHeader = ({currentActivePage, setCurrentActivePage, user}) => {
     return (
         <div className="website-header">
             <HeaderButton
@@ -10,7 +10,6 @@ const WebsiteHeader = ({currentActivePage, setCurrentActivePage, user, logout}) 
             />
             <HeaderRight
                 user = {user}
-                logout = {logout}
             />
         </div>
     )
