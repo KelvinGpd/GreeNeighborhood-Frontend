@@ -4,7 +4,7 @@ const Button = ({text, onClick}) => {
             className="button-global"
             onClick = {onClick}
         >
-            {text}
+            <div className = "button-global-text">{text}</div>
             <img src="../assets/arrow-forward.svg"/>
         </div>
     )
