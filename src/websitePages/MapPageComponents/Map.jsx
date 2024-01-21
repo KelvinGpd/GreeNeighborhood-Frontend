@@ -15,9 +15,59 @@ function getData(setApiData) {
  }
 
 
+ function getColor(type, division, apiData, maxVal){
+
+    if(!type){
+        type = "population"
+    }
+
+    if(division["properties"]["NOM"] in apiData){
+        if ("population" in apiData[division["properties"]["NOM"]]){
+            
+            var thisVal = parseFloat(apiData[division.properties["NOM"]]['population']);
+            var thisMaxVal = maxVal[type];
+            var val = 255*(thisVal/ thisMaxVal)
+
+            if(type == "cars"){
+                return (`rgb(${val}, ${255-val}, ${128})`)
+            }
+            else{
+                return (`rgb(${255-val}, ${val}, ${128})`)
+            }
+        }
+        else {
+            return "#000"
+        }
+    }
+    else{
+        return "#000"
+    }
+ }
+
+
+ function getMax(apiData){
+
+    var maximum = {}
+
+    for (const [_, vals] of Object.entries(apiData)){
+
+        for (const [key, value] of Object.entries(vals)) {
+            if(key in maximum){
+                if(value > maximum[key]){
+                    maximum[key] = value
+                }
+            }
+            else{
+                maximum[key] = value
+            }
+        }
+    }
+
+    return maximum
+}
 
 const Map = (props) => {
-    const [apiData, setApiData] = useState()
+    const [apiData, setApiData] = useState({})
     const [maxVal, setMaxVal] = useState()
 
     useEffect(() => {
@@ -25,60 +75,7 @@ const Map = (props) => {
         
     }, [])
 
-    function getColor(type, division){
-
-        if(division["properties"]["NOM"] in apiData){
-            if ("population" in apiData[division["properties"]["NOM"]]){
-                var val = 255 * Number(apiData[division.properties["NOM"]]['population'])
-                if(type == "population"){
-                    return (`rgb(${255}, ${255}, ${val})`)
-                }
-                else if(type == "cars"){
-                    return (`rgb(${val}, ${255-val}, ${128})`)
-                }
-                else{
-                    return (`rgb(${255-val}, ${val}, ${128})`)
-                }
-            }
-            else {
-                return "#000"
-            }
-        }
-        else{
-            return "#000"
-        }
-    }
-
-    function getMax(){
-        var max = 0;
-
-        if(props.activeDataType == "air"){
-            const keys = ["CO", "NO2", "O3", "PM", "SO2"]
-            for (const [_, vals] of Object.entries(apiData)){
-                var n = 0
-                var sum = 0
-                for(const key of keys){
-                    if (vals.key != undefined){
-                        sum += Number(vals.key)
-                        n+=1;
-                    }
-                }
-                if(max > sum/n){
-                    max = sum/n
-                }
-            }
-        }
-        else{
-            var type = props.activeDataType
-            for (const [_, vals] of Object.entries(apiData)){
-                if(vals.type != undefined && Number(vals.type) > max){
-                    max = Number(vals.type)
-                }
-            }
-        }
-        return max
-    }
-
+    
     return (
         <MapContainer center={[45.55, -73.7]} zoom={11}>
             <TileLayer 
@@ -89,10 +86,11 @@ const Map = (props) => {
                 divisionData.features.map((division) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
                 var color = "#fff"
+                var maxVal;
+
                 if(apiData != undefined){
-                    setMaxVal(getMax)
-                    console.log(maxVal)
-                    color = getColor(props.toggle, division)
+                    maxVal = getMax(apiData)
+                    color = getColor(props.toggle, division, apiData, maxVal)
                 }
                 return (<Polygon
                     pathOptions={{
