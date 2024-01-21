@@ -17,6 +17,7 @@ function getData(setApiData) {
 
  function getColor(type, division, apiData, maxVal){
 
+    console.log(apiData)
     if(!type){
         type = "population"
     }
@@ -28,27 +29,31 @@ function getData(setApiData) {
 
         //TODO DEBUG WHY TF
         if(division["properties"]["NOM"] in apiData){
-        if('O3' in apiData[division["properties"]["NOM"]]){
-            addingLol += parseFloat(division["properties"]["NOM"]['O3'])
+        if(apiData[division["properties"]["NOM"]]["O3"] != undefined){
+            addingLol += parseFloat(apiData[division["properties"]["NOM"]]["O3"])
             addingMax += parseFloat(maxVal['O3'])
         }
 
-        if('SO2' in apiData[division["properties"]["NOM"]]){
-            addingLol += parseFloat(division["properties"]["NOM"]['SO2'])
+        if(apiData[division["properties"]["NOM"]]["SO2"] != undefined){
+            addingLol += parseFloat(apiData[division["properties"]["NOM"]]["SO2"])
             addingMax += parseFloat(maxVal['SO2'])
         }
-        if('NO2' in apiData[division["properties"]["NOM"]]){
-            addingLol += parseFloat(division["properties"]["NOM"]['NO2'])
+        if(apiData[division["properties"]["NOM"]]["NO2"] != undefined){
+            addingLol += parseFloat(apiData[division["properties"]["NOM"]]["NO2"])
             addingMax += parseFloat(maxVal['N02'])
         }
-        if('CO' in apiData[division["properties"]["NOM"]]){
-            addingLol += parseFloat(division["properties"]["NOM"]['CO'])
+        if(apiData[division["properties"]["NOM"]]["CO"] != undefined){
+            addingLol += parseFloat(apiData[division["properties"]["NOM"]]["CO"])
             addingMax += parseFloat(maxVal['C0'])
         }
-        console.log("")
+        if(apiData[division["properties"]["NOM"]]["PM"] != undefined){
+            addingLol += parseFloat(apiData[division["properties"]["NOM"]]["PM"])
+            addingMax += parseFloat(maxVal['PM'])
+        }
+        console.log(division["properties"]["NOM"])
         console.log(addingMax)
         console.log(addingLol)
-        val = 255*(addingLol / addingMax)
+        val = 255.0*(addingLol / addingMax)
         console.log(val)
         return (`rgb(${val}, ${255 - val}, 128)`)
     }
@@ -102,7 +107,6 @@ function getData(setApiData) {
             }
         }
     }
-
     return maximum
 }
 
