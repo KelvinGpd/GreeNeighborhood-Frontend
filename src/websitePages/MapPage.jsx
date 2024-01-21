@@ -1,17 +1,11 @@
-import Map from "./MapPageComponents/Map";
-import MapPageRight from "./MapPageComponents/MapPageRight"
-
-
+import MapForm from "./MapPageComponents/MapForm";
+import MapPageLeft from "./MapPageComponents/MapPageLeft";
 
 const MapPage = () => {
     return (
         <div className="map-page">
-            <div className="map-page-left">
-                <Map />
-            </div>
-            <div className="map-page-right">
-                <MapPageRight />
-            </div>
+            <MapPageLeft/>
+            <MapForm/>
         </div>
     )
 

@@ -14,6 +14,8 @@ function getData(setApiData) {
     return 0
  }
 
+
+
 const Map = () => {
     const [apiData, setApiData] = useState()
 
@@ -21,6 +23,27 @@ const Map = () => {
         const data = getData(setApiData);
         
     }, [])
+
+    function getColor(type, division){
+
+        if(division["properties"]["NOM"] in apiData){
+            if ("population" in apiData[division["properties"]["NOM"]]){
+                var val = 255 * Number(apiData[division.properties["NOM"]]['population'])/100000
+                return `rgb(${255-val}, ${255}, ${128})`
+            }
+            else {
+                return "#000"
+            }
+        }
+        else{
+            return "#000"
+        }
+
+        
+        
+        var red = 255 * (val/100000)
+        return `rgb(${red}, ${0}, ${0})`
+    }
 
     return (
         <MapContainer center={[45.55, -73.7]} zoom={11}>
@@ -31,11 +54,15 @@ const Map = () => {
             {
                 divisionData.features.map((division) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
-                
+                var color = "#fff"
+                if(apiData != undefined){
+                    color = getColor("population", division)
+                    console.log(apiData)
+                }
                 return (<Polygon
                     pathOptions={{
-                    fillColor: "#FF0000",
-                    fillOpacity: 0.7,
+                    fillColor: color,
+                    fillOpacity: (color == "#000") ? 0 : 0.7,
                     weight: 2,
                     opacity: 1,
                     dashArray: 3, 
@@ -49,13 +76,7 @@ const Map = () => {
     )
 }
 
-function getColor(type, val){
-    if (val == null){
-        return `rgb(${0}, ${0}, ${0})`
-    }
-    var red = 255 * (val/100000)
-    return `rgb(${red}, ${0}, ${0})`
-}
+
 
 
 export default Map;

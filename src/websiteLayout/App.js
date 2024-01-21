@@ -21,7 +21,10 @@ function App() {
 
   return (
     <div className="App">
-      <WebsiteHeader />
+      <WebsiteHeader
+        currentActivePage = {activePage}
+        setCurrentActivePage = {(page) => {setActivePage(page)}}
+      />
       {activePage}
     </div>
   );
