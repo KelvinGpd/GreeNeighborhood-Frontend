@@ -5,6 +5,7 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
+    height: fit-content;
 }
 section .signin
 {
@@ -47,6 +48,11 @@ section .signin .content .form .inputBox
   position: relative;
   width: 100%;
 }
+
+.error-message{
+  color: red;
+}
+
 section .signin .content .form .inputBox input 
 {
   position: relative;
@@ -60,6 +66,7 @@ section .signin .content .form .inputBox input
   font-weight: 500;
   font-size: 1em;
 }
+
 section .signin .content .form .inputBox i 
 {
   position: absolute;
