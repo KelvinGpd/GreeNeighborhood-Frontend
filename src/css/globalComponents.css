@@ -55,6 +55,7 @@
     border-radius: 19px;
     background: #E2EFDE;
     gap: 20px;
+    cursor: pointer;
 }
 
 .header-button-text {
