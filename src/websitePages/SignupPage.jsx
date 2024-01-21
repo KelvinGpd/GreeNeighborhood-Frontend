@@ -164,8 +164,6 @@ export default function SignupPage(props) {
 
       <div className="inputBox"> 
 
-        {[apiData]}
-
       </div> 
 
       <div className="links">  <a href="#"

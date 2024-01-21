@@ -25,7 +25,7 @@ const HeaderButton = ({currentActivePage, setCurrentActivePage}) => {
         <motion.div 
             className = "header-button"
             style={{paddingLeft: "4%"}}
-            onClick = {() => setCurrentActivePage(<MapPage/>)}
+            onClick = {() => setCurrentActivePage(<MapPage setActivePage = {setCurrentActivePage}/>)}
             whileHover = {{x:20}}
         >
             <div className = "header-button-text">{Constants.MAP}</div>

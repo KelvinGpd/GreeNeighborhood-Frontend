@@ -10,7 +10,7 @@ const HomePageBottom = ({setActivePage}) => {
                 <div className = "home-page-bottom-description">{Constants.SOURCE_DESCRIPTION}</div>
                 <Button
                     text = {Constants.HOMEPAGE_BUTTON}
-                    onClick = {() => setActivePage(<MapPage/>)}
+                    onClick = {() => setActivePage(<MapPage setActivePage={(page) => setActivePage(page)}/>)}
                 />
             </div>
         </div>
