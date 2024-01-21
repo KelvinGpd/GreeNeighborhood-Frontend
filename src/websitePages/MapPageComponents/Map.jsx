@@ -55,7 +55,7 @@ function getData(setApiData) {
         console.log(addingLol)
         val = 255.0*(addingLol / addingMax)
         console.log(val)
-        return (`rgb(${val}, ${255 - val}, ${128})`)
+        return (`rgb(${val>128 ? val : 0}, ${val<128 ? (255-val) : 0}, ${0})`)
     }
         else{
             return "#000"
@@ -70,13 +70,13 @@ function getData(setApiData) {
             var val = 255*(thisVal/ thisMaxVal)
 
             if(type == "cars"){
-                return (`rgb(${val}, ${255-val}, ${128})`)
+                return (`rgb(${val>128 ? val : 0}, ${val<128 ? (255-val) : 0}, ${0})`)
             }
             if(type == "trees"){
-                return `rgb(${255-val}, ${val}, ${128})`
+                return `rgb(${val<128 ? (255-val) : 0}, ${val>128 ? val : 0}, ${0})`
             }
             else{
-                return (`rgb(${255-val}, ${val}, ${128})`)
+                return (`rgb(${val<128 ? (255-val) : 0}, ${val>128 ? val : 0}, ${0})`)
             }
         }
         else {
