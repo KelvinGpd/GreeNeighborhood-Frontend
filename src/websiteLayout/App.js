@@ -10,7 +10,7 @@ function App() {
 
   const [activePage, setActivePage] = useState(
   <HomePage
-    setActivePage = {() => setActivePage}
+    setActivePage = {(page) => setActivePage(page)}
   />); 
 
   return (
