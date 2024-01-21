@@ -1,42 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginPage from './LoginPage'
 
-import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAvKsp1U2E5W5OsnVjje4qUNGGSPxb1-Qg",
-  authDomain: "even-trainer-411819.firebaseapp.com",
-  projectId: "even-trainer-411819",
-  storageBucket: "even-trainer-411819.appspot.com",
-  messagingSenderId: "270695756520",
-  appId: "1:270695756520:web:0e4d975895f9182307cf5d",
-  measurementId: "G-K6CCZSE9WC"
-};
-const app = initializeApp(firebaseConfig);
+function createUser(email, password, arrondissement, age, ourApp, setErrorMessage){
+
+    const auth = getAuth(ourApp);
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        console.log("User created !")
+
+        //TODO, GIVE POINT TO ARRONDISSEMENT
+
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage)
+    setErrorMessage(<p className='error-message'>{errorMessage}</p>)
+    // ..
+    });
+
+}
+
+
+
+
 
 
 export default function SignupPage(props) {
+
+  const [errorMessage, setErrorMessage] = useState(<label></label>)
+
   return (
     <section>
-    <div className='signin-container'>
+    <div className='signin-container'>  
     <div className="signin"> 
-
     <div className="content"> 
-
      <h2>Sign In</h2> 
-
+     {errorMessage}
      <div className="form"> 
 
       <div className="inputBox"> 
 
-       <input type="text" required placeholder='Username'/>
+       <input id="signup_username" type="text" required placeholder='Username'/>
 
       </div> 
 
       <div className="inputBox"> 
 
-       <input type="password" required placeholder='Password'/>
+       <input id="signup_email" type="text" required placeholder='Email'/>
+
+      </div> 
+
+      <div className="inputBox"> 
+
+       <input id="signup_password" type="password" required placeholder='Password'/>
 
       </div> 
 
@@ -50,7 +73,19 @@ export default function SignupPage(props) {
 
       <div className="inputBox"> 
 
-       <input type="submit" value="Login" />
+       <input type='submit' placeholder='sign-up' onClick={() => {
+
+        var inputField = document.getElementById('signup_username');
+        var inputValue = inputField.value;
+        var email = inputValue
+
+        var inputField2 = document.getElementById('signup_password');
+        var inputValue2 = inputField2.value;
+        console.log("Hello")
+
+        createUser(email, inputValue2, "Verdun", 10, props.app, setErrorMessage)
+
+       }} />
 
       </div> 
 

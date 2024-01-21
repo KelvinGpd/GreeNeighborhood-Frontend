@@ -47,6 +47,11 @@ section .signin .content .form .inputBox
   position: relative;
   width: 100%;
 }
+
+.error-message{
+  color: red;
+}
+
 section .signin .content .form .inputBox input 
 {
   position: relative;
