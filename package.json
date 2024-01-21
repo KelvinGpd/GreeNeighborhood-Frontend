@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^10.7.2",
+    "framer-motion": "^10.18.0",
     "leaflet": "^1.9.4",
     "packages": "^0.0.8",
     "packages.json": "^0.0.1-security",
