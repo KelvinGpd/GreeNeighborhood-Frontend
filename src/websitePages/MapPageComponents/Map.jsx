@@ -18,6 +18,7 @@ function getData(setApiData) {
 
 const Map = (props) => {
     const [apiData, setApiData] = useState()
+    const [maxVal, setMaxVal] = useState()
 
     useEffect(() => {
         const data = getData(setApiData);
@@ -48,6 +49,14 @@ const Map = (props) => {
         }
     }
 
+    // function getMax(){
+    //     var max = 0;
+    //     for ((_, vals) in apiData){
+        
+    //     }
+            
+    // }
+
     return (
         <MapContainer center={[45.55, -73.7]} zoom={11}>
             <TileLayer 
@@ -59,8 +68,10 @@ const Map = (props) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
                 var color = "#fff"
                 if(apiData != undefined){
-                    color = getColor(props.toggle, division)
+                    // getMax()
+                    // console.log(maxVal)
                     console.log(apiData)
+                    color = getColor(props.toggle, division)
                 }
                 return (<Polygon
                     pathOptions={{
