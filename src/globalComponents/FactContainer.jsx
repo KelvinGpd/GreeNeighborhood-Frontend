@@ -1,4 +1,7 @@
-const FactContainer = () => {
+const FactContainer = ({fact}) => {
+    return (
+        <div></div>
+    )
 
 
 }
