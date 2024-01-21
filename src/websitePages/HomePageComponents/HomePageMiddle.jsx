@@ -1,6 +1,6 @@
 import Constants from "../../data/constants";
 import facts from "../../data/facts.json"
-import InfoCard from "../../globalComponents/FactContainer";
+import InfoCard from "../../globalComponents/InfoCard";
 
 const HomePageMiddle = ({}) => {
     return (
