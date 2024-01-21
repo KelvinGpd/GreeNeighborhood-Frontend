@@ -29,17 +29,19 @@ const app = initializeApp(firebaseConfig);
 
 function App() {
   const [user, setUser] = useState();
-
   const [activePage, setActivePage] = useState(
     <LoginPage setActivePage={(page) => setActivePage(page)} app={app} />
     //<HomePage setActivePage={(page) => setActivePage(page)} />
   );
+  const isAuthPage = activePage && activePage.type === LoginPage
+
 
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("user logged " + JSON.stringify(user, null, 2));
+        setUser(user);
         setActivePage(
           <HomePage setActivePage={(page) => setActivePage(page)} />
         );
@@ -54,12 +56,15 @@ function App() {
 
   return (
     <div className="App">
-      <WebsiteHeader
-        currentActivePage={activePage}
-        setCurrentActivePage={(page) => {
-          setActivePage(page);
-        }}
-      />
+      {isAuthPage ? null : 
+        <WebsiteHeader
+          currentActivePage={activePage}
+          setCurrentActivePage={(page) => {
+            setActivePage(page);
+          }}
+          user = {user}
+        />
+      }
       {activePage}
     </div>
   );

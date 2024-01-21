@@ -90,6 +90,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .single-toggler-icon {

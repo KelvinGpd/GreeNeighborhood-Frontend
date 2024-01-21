@@ -1,14 +1,18 @@
 [
     {
+        "title" : "Welcome!",
+        "description" : "You don't need to be an environmentalist to enjoy and maintain a healthy living environment."
+    },
+    {
         "title" : "Our Objective",
-        "description" : "Make commitements alongside our neighborhoods to better our environements."
+        "description" : "by visualising pollution in your neighborhoods, we wish to make you commited to the pursuit of a healthier community lifestyle."
+    },
+    {
+        "title" : "That's why",
+        "description" : "Through our website and through your initiative, you can influence your neighborhood's overall pollution index."
     },
     {
         "title" : "Our Values",
         "description" : "Accountability, Responsiblity and Respect"
-    },
-    {
-        "title" : "About us",
-        "description" : "Rommates who live right next to Boulevard Decarie..."
     }
 ]
