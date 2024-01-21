@@ -72,7 +72,7 @@ export default function LoginPage(props) {
         var inputField = document.getElementById('Password');
         var inputValue = inputField.value;
         
-        signin(props.setUser, props.setActivePage, email, inputValue, props.app)
+        signin(props.setUser, props.setActivePage, email, inputValue, props.app, setErrorMessage)
 
       }}/>
 

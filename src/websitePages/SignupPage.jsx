@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoginPage from './LoginPage'
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Autocomplete, InputLabel } from "@mui/material";
+import { TextField } from "@mui/material";
+import axios from 'axios';
 
 function createUser(email, password, arrondissement, age, ourApp, setErrorMessage){
 
@@ -27,6 +30,37 @@ function createUser(email, password, arrondissement, age, ourApp, setErrorMessag
 
 }
 
+function getData(setApiData, setNeighborhood) {
+
+  axios.get("https://greeneighborhood-ca0076fde18e.herokuapp.com/get_data")
+  .then((response) => {
+    
+    var arr = []
+    for (const [key, value] of Object.entries(response.data)) {
+      if(key != "Montreal" && key != "Montréal") arr.push({"label": key})
+    }
+
+
+    setApiData(<div className="search-box">
+          <InputLabel> Select your neighborhood </InputLabel>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={arr}
+            sx={{ width: 300 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Neighborhoods" />
+            )}
+            onChange={(e, value) => setNeighborhood(value)}
+          />
+      </div>)
+
+
+  })
+  .catch((error) => console.log(error));
+
+  return 0
+}
 
 
 
@@ -35,6 +69,13 @@ function createUser(email, password, arrondissement, age, ourApp, setErrorMessag
 export default function SignupPage(props) {
 
   const [errorMessage, setErrorMessage] = useState(<label></label>)
+  const [neighborhood, setNeighborhood] = useState()
+  const [apiData, setApiData] = useState(<></>)
+
+
+  useEffect(()=>{
+    getData(setApiData, setNeighborhood)
+  }, [])
 
   return (
     <section>
@@ -60,6 +101,12 @@ export default function SignupPage(props) {
       <div className="inputBox"> 
 
        <input id="signup_password" type="password" required placeholder='Password'/>
+
+      </div> 
+
+      <div className="inputBox"> 
+
+        {[apiData]}
 
       </div> 
 
