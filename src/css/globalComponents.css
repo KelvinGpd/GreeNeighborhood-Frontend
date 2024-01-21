@@ -1,0 +1,21 @@
+/*website header*/
+.website-header {
+    position: sticky;
+    background-color: #3A7D44;
+}
+
+
+/*carousel*/
+.carousel {
+    display: flex;
+
+}
+
+.carousel-media-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-progress-bar {
+    display: flex;
+}

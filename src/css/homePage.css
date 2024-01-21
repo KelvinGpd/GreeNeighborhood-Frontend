@@ -1,0 +1,14 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    background-color: #E2EFDE;
+}
+
+.home-page-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page-middle {
+    display: flex;
+}
