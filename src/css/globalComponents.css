@@ -161,4 +161,15 @@
     top: 20px;
 }
 
+.box-shadow-rounded{
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    right: 20px;
+    top: 20px;
+}
+
 /*user-circle*/
+
