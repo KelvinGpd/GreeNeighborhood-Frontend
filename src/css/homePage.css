@@ -18,14 +18,15 @@
     display: flex;
     flex-direction: column;
     background-color: #E2EFDE;
-    padding: 5%;
     overflow-x: hidden;
     height: 100%;
 }
 
-.home-page-top {
+.home-page-top, .home-page-middle, .home-page-bottom {
+    gap: 90px;
     display: flex;
     flex-direction: column;
+    padding: 5%;
 }
 
 .home-page-top-website-name {
@@ -33,11 +34,6 @@
     font-style: italic;
     font-size: 96px;
     text-align: start;
-}
-
-.home-page-middle {
-    display: flex;
-    flex-direction: column;
 }
 
 .home-page-middle-title, .home-page-bottom-title {
@@ -54,14 +50,17 @@
     gap: 5%;
 }
 
-
-.home-page-bottom  {
+.home-page-bottom-padded {
+    gap: 90px;
     display: flex;
     flex-direction: column;
+    padding: 0% 5% 5% 5%;
+    align-items: center;
 }
 
 .home-page-bottom-description {
     font-family: "Inter-Light";
     font-size: 64px;
     font-style: italic;
+    text-align: start;
 }

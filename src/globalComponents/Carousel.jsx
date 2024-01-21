@@ -7,9 +7,12 @@ const Carousel = () => {
     return (
         <div className="carousel">
             <img src = "../assets/chevron-right.svg" width = "100%"/>
-            
-            <div className="carousel-media-display">
 
+            <div className="carousel-media-display">
+                <div>
+                    {selectedMedia.title}
+                    {selectedMedia.description}
+                </div>
                 <div className="carousel-progress-bar">
                 </div>
             </div>
