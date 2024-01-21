@@ -31,6 +31,22 @@
     border-radius: 10px;
 }
 
+.map-form-container {
+    display: flex;
+    position: relative;
+    width: 40%;
+    margin: 3% 3% 3% 0;
+}
+
+
+/*Togglers*/
+.map-togglers-container {
+    display: flex;
+    position: relative;
+    height: 30%;
+}
+
+
 .map-togglers {
     z-index: 1;
     width: 100%;
@@ -38,17 +54,15 @@
     border-radius: 10px;
     border: 2px solid #000;
     background: #E2EFDE;
+    display: flex;
+    flex-direction: column;
 }
 
-.map-togglers-container {
+.map-togglers-list-container {
     display: flex;
-    position: relative;
-    height: 30%;
+
 }
 
-.map-form-container {
-    display: flex;
-    position: relative;
-    width: 40%;
-    margin: 3%;
+.map-togglers-header {
+
 }
