@@ -39,7 +39,7 @@ function App() {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("user logged");
+        console.log("user logged " + JSON.stringify(user, null, 2));
         setActivePage(
           <HomePage setActivePage={(page) => setActivePage(page)} />
         );

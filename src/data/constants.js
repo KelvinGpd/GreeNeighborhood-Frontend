@@ -8,6 +8,7 @@ const Constants = {
     HOME : "HOME",
     MAP : "MAP",
     WELCOME : "WELCOME, ",
-    LOGOUT : "Log out"
+    LOGOUT : "Log out",
+    CHOOSE_DATA_TYPE : "Choose a dataset to view "
 }
 export default Constants
