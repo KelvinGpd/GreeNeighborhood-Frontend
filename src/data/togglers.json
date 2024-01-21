@@ -1,0 +1,23 @@
+[
+    {
+        "for-data" : "trees",
+        "display-name" : "tree density"
+    },
+    {
+        "for-data" : "air",
+        "display-name" : "tree density"
+    },
+    {
+        "for-data" : "population",
+        "display-name" : "tree density"
+    },
+    {
+        "for-data" : "bikes",
+        "display-name" : "tree density"
+    },
+    {
+        "for-data" : "cars",
+        "display-name" : "tree density"
+    }
+
+]
