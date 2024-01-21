@@ -13,6 +13,8 @@ const Map = () => {
             {
                 divisionData.features.map((division) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
+                const data = getData();
+                console.log(data);
 
                 return (<Polygon
                     pathOptions={{
@@ -29,6 +31,16 @@ const Map = () => {
             }
         </MapContainer>
     )
+}
+
+function getData() {
+   fetch('https://greeneighborhood-ca0076fde18e.herokuapp.com/get_data', {
+   headers: {
+      'Accept': 'application/json'
+   }
+   })
+   .then(response => response.text())
+   .then(text => return(text))
 }
 
 export default Map;
