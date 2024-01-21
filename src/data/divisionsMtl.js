@@ -2625,7 +2625,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 3,
-        "NOM": "Dollard-des-Ormeaux",
+        "NOM": "Dollard-desOrmeaux",
         "CODEMAMH": "66142",
         "NUM": 11,
         "ABREV": "DO",
@@ -9189,7 +9189,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 19,
-        "NOM": "Villeray-Saint-Michel-Parc-Extension",
+        "NOM": "Villeray-Saint-Michel - Parc-Extension",
         "CODEMAMH": "REM25",
         "NUM": 26,
         "ABREV": "VS",
@@ -13407,7 +13407,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 18,
-        "NOM": "Rosemont-La Petite-Patrie",
+        "NOM": "Rosemont - La Petite-Patrie",
         "CODEMAMH": "REM24",
         "NUM": 25,
         "ABREV": "RO",
@@ -24661,7 +24661,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 30,
-        "NOM": "Montréal-Ouest",
+        "NOM": "Ouest",
         "CODEMAMH": "66047",
         "NUM": 75,
         "ABREV": "MO",
@@ -26827,7 +26827,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 20,
-        "NOM": "Côte-des-Neiges-Notre-Dame-de-Grâce",
+        "NOM": "Côte-des-Neiges - Notre-Dame-de-Grâce",
         "CODEMAMH": "REM34",
         "NUM": 27,
         "ABREV": "CN",
@@ -33977,7 +33977,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 24,
-        "NOM": "L'Île-Bizard-Sainte-Geneviève",
+        "NOM": "L'île-Bizard",
         "CODEMAMH": "REM32",
         "NUM": 6,
         "ABREV": "IS",
@@ -52151,7 +52151,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 16,
-        "NOM": "Mercier-Hochelaga-Maisonneuve",
+        "NOM": "Mercier - Hochelaga-Maisonneuve",
         "CODEMAMH": "REM22",
         "NUM": 23,
         "ABREV": "MH",
@@ -69263,7 +69263,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 28,
-        "NOM": "L'Île-Dorval",
+        "NOM": "L'île-Dorval",
         "CODEMAMH": "66092",
         "NUM": 73,
         "ABREV": "ID",
@@ -76249,7 +76249,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 5,
-        "NOM": "Pierrefonds-Roxboro",
+        "NOM": "Pierrefonds - Roxboro",
         "CODEMAMH": "REM31",
         "NUM": 13,
         "ABREV": "PR",
@@ -82479,7 +82479,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 11,
-        "NOM": "Rivière-des-Prairies-Pointe-aux-Trembles",
+        "NOM": "Rivière-des-Prairies - Pointe-aux-Trembles",
         "CODEMAMH": "REM33",
         "NUM": 19,
         "ABREV": "RP",
@@ -84349,7 +84349,7 @@ export const divisionData = {
       "type": "Feature",
       "properties": {
         "CODEID": 17,
-        "NOM": "Ahuntsic-Cartierville",
+        "NOM": "Ahuntsic - Cartierville",
         "CODEMAMH": "REM23",
         "NUM": 24,
         "ABREV": "AC",

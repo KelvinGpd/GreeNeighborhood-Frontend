@@ -2,8 +2,26 @@ import 'leaflet/dist/leaflet.css'
 import { divisionData } from "../../data/divisionsMtl"
 
 import { MapContainer, TileLayer, Polygon } from "react-leaflet"
+import { useEffect, useState } from 'react'
+import axios from 'axios';
+
+function getData(setApiData) {
+
+    axios.get("https://greeneighborhood-ca0076fde18e.herokuapp.com/get_data")
+    .then((response) => setApiData(response.data))
+    .catch((error) => console.log(error));
+ 
+    return 0
+ }
 
 const Map = () => {
+    const [apiData, setApiData] = useState()
+
+    useEffect(() => {
+        const data = getData(setApiData);
+        
+    }, [])
+
     return (
         <MapContainer center={[45.55, -73.7]} zoom={11}>
             <TileLayer 
@@ -13,9 +31,7 @@ const Map = () => {
             {
                 divisionData.features.map((division) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
-                const data = getData();
-                console.log(data);
-
+                
                 return (<Polygon
                     pathOptions={{
                     fillColor: "#FD8D3C",
@@ -33,14 +49,6 @@ const Map = () => {
     )
 }
 
-function getData() {
-   fetch('https://greeneighborhood-ca0076fde18e.herokuapp.com/get_data', {
-   headers: {
-      'Accept': 'application/json'
-   }
-   })
-   .then(response => response.text())
-   .then(text => return(text))
-}
+
 
 export default Map;
