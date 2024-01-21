@@ -1,11 +1,11 @@
-import Map from "./MapPageComponents/Map";
-
-
+import MapForm from "./MapPageComponents/MapForm";
+import MapPageLeft from "./MapPageComponents/MapPageLeft";
 
 const MapPage = () => {
     return (
         <div className="map-page">
-            <Map />
+            <MapPageLeft/>
+            <MapForm/>
         </div>
     )
 
