@@ -29,6 +29,26 @@
     justify-content: space-between;
 }
 
+.header-right {
+    display: flex;
+    align-self: center;
+
+    color: #FFF;
+    font-family: "Inter-Regular";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    gap:40px
+}
+
+.header-logout {
+    font-style: oblique;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .header-button {
     display: flex;
     width: fit-content;
@@ -113,23 +133,24 @@
     height: fit-content;
     background: #B74F6F;
     text-align: start;
-    padding: 5%;
+    padding: 3%;
     width: 33%;
     box-shadow: -20px 20px #8F435A;
+    overflow: hidden;
 }
 
 .infocard-header {
     color: #FFF;
     font-family: "Inter-Extra-Light";
     font-style: italic;
-    font-size: 96px;
+    font-size: 50px;
 }
 
 .infocard-description {
     color: #FFF;
     font-family: "Inter-Extra-Light";
     font-style: italic;
-    font-size: 64px;
+    font-size: 30px;
 }
 
 /*button-global*/
