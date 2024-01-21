@@ -16,6 +16,18 @@
 .big-ui{
 }
 
+.small-button{
+    width: 50px;
+    height: 20px;
+    scale: 0.2;
+}
+
+.commitements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .map-right{
     z-index: -10;
     position: relative;
