@@ -20,6 +20,44 @@ function getData(setApiData) {
     if(!type){
         type = "population"
     }
+
+    if(type == "air"){
+        var addingLol = 0
+        var addingMax = 0
+
+
+        //TODO DEBUG WHY TF
+        if(division["properties"]["NOM"] in apiData){
+        if('O3' in apiData[division["properties"]["NOM"]]){
+            addingLol += parseFloat(division["properties"]["NOM"]['O3'])
+            addingMax += parseFloat(maxVal['O3'])
+        }
+
+        if('SO2' in apiData[division["properties"]["NOM"]]){
+            addingLol += parseFloat(division["properties"]["NOM"]['SO2'])
+            addingMax += parseFloat(maxVal['SO2'])
+        }
+        if('NO2' in apiData[division["properties"]["NOM"]]){
+            addingLol += parseFloat(division["properties"]["NOM"]['NO2'])
+            addingMax += parseFloat(maxVal['N02'])
+        }
+        if('CO' in apiData[division["properties"]["NOM"]]){
+            addingLol += parseFloat(division["properties"]["NOM"]['CO'])
+            addingMax += parseFloat(maxVal['C0'])
+        }
+        console.log("")
+        console.log(addingMax)
+        console.log(addingLol)
+        val = 255*(addingLol / addingMax)
+        console.log(val)
+        return (`rgb(${val}, ${255 - val}, 128)`)
+    }
+        else{
+            return "#000"
+        }
+
+    }
+
     if(division["properties"]["NOM"] in apiData){
         if (type in apiData[division["properties"]["NOM"]]){
             console.log()
@@ -29,6 +67,9 @@ function getData(setApiData) {
 
             if(type == "cars"){
                 return (`rgb(${val}, ${255-val}, ${128})`)
+            }
+            if(type == "trees"){
+                return `rgb(${255-val}, ${val}, ${128})`
             }
             else{
                 return (`rgb(${255-val}, ${val}, ${128})`)
