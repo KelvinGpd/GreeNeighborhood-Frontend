@@ -20,11 +20,10 @@ function getData(setApiData) {
     if(!type){
         type = "population"
     }
-
     if(division["properties"]["NOM"] in apiData){
-        if ("population" in apiData[division["properties"]["NOM"]]){
-            
-            var thisVal = parseFloat(apiData[division.properties["NOM"]]['population']);
+        if (type in apiData[division["properties"]["NOM"]]){
+            console.log()
+            var thisVal = parseFloat(apiData[division.properties["NOM"]][type]);
             var thisMaxVal = maxVal[type];
             var val = 255*(thisVal/ thisMaxVal)
 
@@ -90,7 +89,7 @@ const Map = (props) => {
 
                 if(apiData != undefined){
                     maxVal = getMax(apiData)
-                    color = getColor(props.toggle, division, apiData, maxVal)
+                    color = getColor(props.activeDataType, division, apiData, maxVal)
                 }
                 return (<Polygon
                     pathOptions={{
