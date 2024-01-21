@@ -5,19 +5,19 @@
     },
     {
         "for-data" : "air",
-        "display-name" : "tree density"
+        "display-name" : "air polution"
     },
     {
         "for-data" : "population",
-        "display-name" : "tree density"
+        "display-name" : "population density"
     },
     {
         "for-data" : "bikes",
-        "display-name" : "tree density"
+        "display-name" : "bike density"
     },
     {
         "for-data" : "cars",
-        "display-name" : "tree density"
+        "display-name" : "car density"
     }
 
 ]

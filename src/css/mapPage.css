@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Inter-Semi-Bold';
+    src: url('../assets/fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('../assets/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter-Light';
+    src: url('../assets/fonts/Inter-Light.ttf') format('truetype');
+}
+
+
 .map-page {
     height: 100%;
     width: 100%;
@@ -46,23 +62,46 @@
     height: 30%;
 }
 
-
 .map-togglers {
     z-index: 1;
     width: 100%;
-    height: 100%;
     border-radius: 10px;
     border: 2px solid #000;
     background: #E2EFDE;
     display: flex;
     flex-direction: column;
+    padding: 3%;
+    gap: 30px;
 }
 
 .map-togglers-list-container {
     display: flex;
-
+    gap: 20px;
 }
 
 .map-togglers-header {
+    font-family: "Inter-Semi-Bold";
+    font-size: 32px;
+}
+
+.single-toggler-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.single-toggler-icon {
+    z-index: 0;
+    position: absolute;
+    width: 50%;
+}
+
+.single-toggler-description {
+    font-size: 30px;
+    font-family: "Inter-Light";
+    z-index: 1;
+    font-style: italic;
 
 }
