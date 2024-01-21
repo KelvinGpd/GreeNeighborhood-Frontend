@@ -2,7 +2,7 @@
 const Constants = {
     APPNAME : "GreeNeighbourhood",
     DIDYOUKNOW : "Did you know that...",
-    SOURCE : "-Source?",
+    SOURCE : "-SOURCE?",
     SOURCE_DESCRIPTION : "We made a map lol",
     HOMEPAGE_BUTTON : "See for yourself"
 }
