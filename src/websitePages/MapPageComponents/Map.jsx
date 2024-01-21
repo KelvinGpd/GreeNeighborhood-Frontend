@@ -49,13 +49,35 @@ const Map = (props) => {
         }
     }
 
-    // function getMax(){
-    //     var max = 0;
-    //     for ((_, vals) in apiData){
-        
-    //     }
-            
-    // }
+    function getMax(){
+        var max = 0;
+
+        if(props.activeDataType == "air"){
+            const keys = ["CO", "NO2", "O3", "PM", "SO2"]
+            for (const [_, vals] of Object.entries(apiData)){
+                var n = 0
+                var sum = 0
+                for(const key of keys){
+                    if (vals.key != undefined){
+                        sum += Number(vals.key)
+                        n+=1;
+                    }
+                }
+                if(max > sum/n){
+                    max = sum/n
+                }
+            }
+        }
+        else{
+            var type = props.activeDataType
+            for (const [_, vals] of Object.entries(apiData)){
+                if(vals.type != undefined && Number(vals.type) > max){
+                    max = Number(vals.type)
+                }
+            }
+        }
+        return max
+    }
 
     return (
         <MapContainer center={[45.55, -73.7]} zoom={11}>
@@ -68,9 +90,8 @@ const Map = (props) => {
                 const coordinates = division.geometry.coordinates[0][0].map((item) => [item[1], item[0]]);
                 var color = "#fff"
                 if(apiData != undefined){
-                    // getMax()
-                    // console.log(maxVal)
-                    console.log(apiData)
+                    setMaxVal(getMax)
+                    console.log(maxVal)
                     color = getColor(props.toggle, division)
                 }
                 return (<Polygon
