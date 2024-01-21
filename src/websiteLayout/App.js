@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import './App.css';
+import '../css/App.css';
+import "../css/homePage.css"
+import "../css/mapPage.css"
+import "../css/globalComponents.css"
 import WebsiteHeader from '../globalComponents/WebsiteHeader';
 import HomePage from '../websitePages/HomePage';
 
 function App() {
-  const [activePage, setActvivePage] = useState(
+
+  const [activePage, setActivePage] = useState(
   <HomePage
-    setActivePage = {setActvivePage}
+    setActivePage = {() => setActivePage}
   />); 
 
   return (

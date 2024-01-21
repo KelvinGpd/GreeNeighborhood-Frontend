@@ -9,10 +9,13 @@ const HomePageMiddle = ({}) => {
             {facts.map((fact) => {
                 return (
                     <FactContainer
-                     fact = {fact}
+                        fact = {fact}
                     />
                 )
             })}
+            <div>
+                <img src="../../assets/car.svg"/>
+            </div>
 
         </div>
     )

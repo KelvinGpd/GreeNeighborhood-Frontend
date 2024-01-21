@@ -5,7 +5,7 @@ const HomePageTop= () => {
 
     return (
         <div className="home-page-top">
-            <div>{Constants.APPNAME}</div>
+            <div className = "home-page-top-website-name">{Constants.APPNAME.toUpperCase()}</div>
             <Carousel
             />
         </div>
