@@ -34,7 +34,7 @@ const Map = () => {
                 
                 return (<Polygon
                     pathOptions={{
-                    fillColor: "#FD8D3C",
+                    fillColor: "#FF0000",
                     fillOpacity: 0.7,
                     weight: 2,
                     opacity: 1,
@@ -49,6 +49,13 @@ const Map = () => {
     )
 }
 
+function getColor(type, val){
+    if (val == null){
+        return `rgb(${0}, ${0}, ${0})`
+    }
+    var red = 255 * (val/100000)
+    return `rgb(${red}, ${0}, ${0})`
+}
 
 
 export default Map;
